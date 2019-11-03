@@ -29,45 +29,21 @@ app.get('/',function(req,res){
 });
 
 var asData = {};
-var asScorersData = {};
-var elData = {};
-var dasData = {};
-var seData = {};
+var esData ={}
 
 axios.get(domain + '/as')
     .then(function(res){asData = res.data;})
 
-axios.get(domain + '/as/topscorers')
-    .then(function(res){asScorersData = res.data;})
-    
-axios.get(domain + '/el')
-    .then(function(res){elData = res.data;})
-    
-axios.get(domain + '/das')
-    .then(function(res){dasData = res.data;})
-    
-axios.get(domain + '/se')
-    .then(function(res){seData = res.data;})
+axios.get(domain + '/es')
+    .then(function(res){esData = res.data;})
 
 
 app.get('/allsvenskan', function(req,res){
     res.render('tabell', {data: asData})
 })
 
-app.get('/elitettan', function(req,res){
-    res.render('tabell', {data: elData})
-})
-
-app.get('/damallsvenskan', function(req,res){
-    res.render('tabell', {data: dasData})
-})
-
-app.get('/superettan', function(req,res){
-    res.render('tabell', {data: seData})
-})
-
-app.get('/allsvenskanbw', function(req,res){
-    res.render('bw', {data: asData})
+app.get('/bandy-elitserien', function(req,res){
+    res.render('tabell', {data: esData})
 })
 
 app.listen(port);
