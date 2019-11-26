@@ -58,7 +58,7 @@ exports.bandy_elitserien_standings = function(req, res) {
                     loss: current.substring(23,25).trim(),
                     gm: current.substring(27,29).trim(),
                     im: current.substring(30,32).trim(),
-                    points: current.substring(35,39).trim()
+                    points: current.substring(34,39).trim()
                 };
                 tmp.ms = (tmp.gm - tmp.im);
                 items.push(tmp);
